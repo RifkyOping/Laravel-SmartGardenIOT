@@ -19,6 +19,9 @@ return Application::configure(basePath: dirname(__DIR__))
         'path.storage' => function () {
             return $_ENV['APP_STORAGE'] ?? base_path('storage');
         },
+        'path.bootstrap.cache' => function () {
+            return '/tmp/bootstrap/cache';
+        }
     ])
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
