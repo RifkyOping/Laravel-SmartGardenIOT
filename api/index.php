@@ -11,6 +11,8 @@ if (!is_dir($storagePath)) {
     mkdir('/tmp/bootstrap/cache', 0777, true);
 }
 
+putenv("APP_STORAGE={$storagePath}");
+$_SERVER['APP_STORAGE'] = $storagePath;
 $_ENV['APP_STORAGE'] = $storagePath;
 
 require __DIR__ . '/../public/index.php';
