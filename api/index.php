@@ -15,4 +15,12 @@ putenv("APP_STORAGE={$storagePath}");
 $_SERVER['APP_STORAGE'] = $storagePath;
 $_ENV['APP_STORAGE'] = $storagePath;
 
-require __DIR__ . '/../public/index.php';
+try {
+    require __DIR__ . '/../public/index.php';
+} catch (\Throwable $e) {
+    http_response_code(500);
+    header('Content-Type: text/plain');
+    echo "ERROR VERCEL PHP:\n";
+    echo $e->getMessage() . "\n\n";
+    echo $e->getTraceAsString();
+}
