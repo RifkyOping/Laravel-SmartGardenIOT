@@ -15,6 +15,14 @@ putenv("APP_STORAGE={$storagePath}");
 $_SERVER['APP_STORAGE'] = $storagePath;
 $_ENV['APP_STORAGE'] = $storagePath;
 
+putenv("APP_PACKAGES_CACHE=/tmp/bootstrap/cache/packages.php");
+$_SERVER['APP_PACKAGES_CACHE'] = '/tmp/bootstrap/cache/packages.php';
+$_ENV['APP_PACKAGES_CACHE'] = '/tmp/bootstrap/cache/packages.php';
+
+putenv("APP_SERVICES_CACHE=/tmp/bootstrap/cache/services.php");
+$_SERVER['APP_SERVICES_CACHE'] = '/tmp/bootstrap/cache/services.php';
+$_ENV['APP_SERVICES_CACHE'] = '/tmp/bootstrap/cache/services.php';
+
 try {
     require __DIR__ . '/../public/index.php';
 } catch (\Throwable $e) {

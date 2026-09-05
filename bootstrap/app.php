@@ -24,8 +24,5 @@ $app = Application::configure(basePath: dirname(__DIR__))
 if (isset($_SERVER['APP_STORAGE'])) {
     $app->useStoragePath($_SERVER['APP_STORAGE']);
 }
-if (isset($_ENV['VERCEL']) || isset($_SERVER['VERCEL']) || isset($_SERVER['APP_STORAGE'])) {
-    $app->useBootstrapCachePath('/tmp/bootstrap/cache');
-}
 
 return $app;
